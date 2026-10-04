@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { CaptionEngine } from '../components/CaptionEngine';
+import { translations } from '../i18n/translations';
+import { ShieldCheck, Cpu, DownloadCloud, HelpCircle, ArrowRight } from 'lucide-react';
+
+const locale = 'en';
+const t = translations[locale];
+const title = 'CaptionLK | Free 100% Client-Side AI Sinhala Caption Generator';
+const description = 'A privacy-first, zero-server AI subtitle generator built with Astro, React, Transformers.js (Whisper), FFmpeg.wasm, and Tailwind CSS. Automatically transcribe video/audio to Sinhala text, edit subtitles, and export SRT files entirely in the browser.';
+const canonicalUrl = 'https://captionlk.github.io/';
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  currentLocale={locale}
+  canonicalUrl={canonicalUrl}
+>
+  <div class="space-y-16 sm:space-y-24">
+    
+    {/* Hero Header */}
+    <section class="text-center max-w-3xl mx-auto space-y-4 pt-4 sm:pt-8">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EBF3EF] dark:bg-[#1D4533]/40 text-[#1D4533] dark:text-[#F9D2BA] border border-[#1D4533]/20 dark:border-[#1D4533]/40 text-xs font-bold shadow-xs">
+        <ShieldCheck class="w-4 h-4 text-[#1D4533] dark:text-[#F9D2BA]" />
+        <span>{t.privacyBadge}</span>
+        <span class="text-[#1D4533]/40 dark:text-[#F9D2BA]/40">&bull;</span>
+        <span>Offline-Ready AI</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#331C13] dark:text-[#F7EAE0] leading-[1.15]">
+        {t.heroHeading}{' '}
+        <span class="bg-gradient-to-r from-[#1D4533] via-[#5E3122] to-[#EBBCA0] bg-clip-text text-transparent">
+          {t.heroHighlight}
+        </span>
+      </h1>
+
+      <p class="text-sm sm:text-base text-[#5E3122]/85 dark:text-[#F7EAE0]/80 leading-relaxed max-w-2xl mx-auto">
+        {t.heroDescription}
+      </p>
+    </section>
+
+    {/* Primary Interactive React Island */}
+    <section id="workspace" class="scroll-mt-24">
+      <CaptionEngine client:load currentLocale={locale} />
+    </section>
+
+    {/* Features Grid */}
+    <section class="space-y-8 pt-8 border-t border-[#EADBCE] dark:border-[#223B30]">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#331C13] dark:text-[#F7EAE0]">
+          {t.featuresTitle}
+        </h2>
+        <p class="text-sm text-[#5E3122]/75 dark:text-[#F7EAE0]/70">
+          State-of-the-art WebAssembly & WebGPU speech models engineered for creators.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        {/* Feature 1 */}
+        <div class="p-6 rounded-3xl bg-[#FAF2EB] dark:bg-[#13221C] border border-[#EADBCE] dark:border-[#223B30] shadow-xs hover:border-[#1D4533] dark:hover:border-[#F9D2BA] transition-all group">
+          <div class="w-12 h-12 rounded-2xl bg-[#EBF3EF] dark:bg-[#1D4533]/40 text-[#1D4533] dark:text-[#F9D2BA] flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+            <ShieldCheck class="w-6 h-6" />
+          </div>
+          <h3 class="text-base font-bold text-[#331C13] dark:text-[#F7EAE0] mb-2">
+            {t.feature1Title}
+          </h3>
+          <p class="text-xs sm:text-sm text-[#5E3122]/80 dark:text-[#F7EAE0]/70 leading-relaxed">
+            {t.feature1Desc}
+          </p>
+        </div>
+
+        {/* Feature 2 */}
+        <div class="p-6 rounded-3xl bg-[#FAF2EB] dark:bg-[#13221C] border border-[#EADBCE] dark:border-[#223B30] shadow-xs hover:border-[#1D4533] dark:hover:border-[#F9D2BA] transition-all group">
+          <div class="w-12 h-12 rounded-2xl bg-[#FAF0E8] dark:bg-[#5E3122]/40 text-[#5E3122] dark:text-[#F9D2BA] flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+            <Cpu class="w-6 h-6" />
+          </div>
+          <h3 class="text-base font-bold text-[#331C13] dark:text-[#F7EAE0] mb-2">
+            {t.feature2Title}
+          </h3>
+          <p class="text-xs sm:text-sm text-[#5E3122]/80 dark:text-[#F7EAE0]/70 leading-relaxed">
+            {t.feature2Desc}
+          </p>
+        </div>
+
+        {/* Feature 3 */}
+        <div class="p-6 rounded-3xl bg-[#FAF2EB] dark:bg-[#13221C] border border-[#EADBCE] dark:border-[#223B30] shadow-xs hover:border-[#1D4533] dark:hover:border-[#F9D2BA] transition-all group">
+          <div class="w-12 h-12 rounded-2xl bg-[#EBF3EF] dark:bg-[#1D4533]/40 text-[#1D4533] dark:text-[#F9D2BA] flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+            <DownloadCloud class="w-6 h-6" />
+          </div>
+          <h3 class="text-base font-bold text-[#331C13] dark:text-[#F7EAE0] mb-2">
+            {t.feature3Title}
+          </h3>
+          <p class="text-xs sm:text-sm text-[#5E3122]/80 dark:text-[#F7EAE0]/70 leading-relaxed">
+            {t.feature3Desc}
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    {/* How It Works Steps */}
+    <section class="space-y-8 bg-gradient-to-b from-[#FAF2EB] to-[#FAF4EE] dark:from-[#13221C] dark:to-[#0E1713] p-6 sm:p-10 rounded-3xl border border-[#EADBCE] dark:border-[#223B30]">
+      <div class="text-center max-w-xl mx-auto space-y-2">
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#331C13] dark:text-[#F7EAE0]">
+          {t.howItWorksTitle}
+        </h2>
+        <p class="text-sm text-[#5E3122]/75 dark:text-[#F7EAE0]/70">
+          Fast, effortless, and 100% private workflow.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+        <div class="space-y-3 p-4">
+          <div class="w-10 h-10 mx-auto rounded-2xl bg-[#1D4533] text-[#F9D2BA] font-extrabold flex items-center justify-center text-sm shadow-md">
+            1
+          </div>
+          <h3 class="font-bold text-base text-[#331C13] dark:text-[#F7EAE0]">{t.step1Title}</h3>
+          <p class="text-xs text-[#5E3122]/80 dark:text-[#F7EAE0]/70">{t.step1Desc}</p>
+        </div>
+
+        <div class="space-y-3 p-4">
+          <div class="w-10 h-10 mx-auto rounded-2xl bg-[#5E3122] text-[#F9D2BA] font-extrabold flex items-center justify-center text-sm shadow-md">
+            2
+          </div>
+          <h3 class="font-bold text-base text-[#331C13] dark:text-[#F7EAE0]">{t.step2Title}</h3>
+          <p class="text-xs text-[#5E3122]/80 dark:text-[#F7EAE0]/70">{t.step2Desc}</p>
+        </div>
+
+        <div class="space-y-3 p-4">
+          <div class="w-10 h-10 mx-auto rounded-2xl bg-[#1D4533] text-[#F9D2BA] font-extrabold flex items-center justify-center text-sm shadow-md">
+            3
+          </div>
+          <h3 class="font-bold text-base text-[#331C13] dark:text-[#F7EAE0]">{t.step3Title}</h3>
+          <p class="text-xs text-[#5E3122]/80 dark:text-[#F7EAE0]/70">{t.step3Desc}</p>
+        </div>
+      </div>
+    </section>
+
+    {/* Frequently Asked Questions (FAQ) */}
+    <section class="max-w-3xl mx-auto space-y-6">
+      <div class="text-center space-y-2">
+        <div class="inline-flex items-center gap-1.5 text-[#1D4533] dark:text-[#F9D2BA] font-bold text-xs tracking-wider uppercase">
+          <HelpCircle class="w-4 h-4" />
+          <span>Knowledge Base</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#331C13] dark:text-[#F7EAE0]">
+          {t.faqTitle}
+        </h2>
+      </div>
+
+      <div class="space-y-3 pt-2">
+        {t.faqs.map((faq) => (
+          <details class="group bg-[#FAF2EB] dark:bg-[#13221C] border border-[#EADBCE] dark:border-[#223B30] rounded-2xl p-4 sm:p-5 [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex items-center justify-between cursor-pointer font-bold text-sm sm:text-base text-[#331C13] dark:text-[#F7EAE0]">
+              <span>{faq.question}</span>
+              <span class="ml-4 shrink-0 rounded-xl p-1.5 bg-[#EADBCE]/50 dark:bg-[#0E1713] text-[#5E3122] dark:text-[#F9D2BA] group-open:rotate-180 transition-transform">
+                <ArrowRight class="w-3.5 h-3.5 rotate-90" />
+              </span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-[#5E3122]/80 dark:text-[#F7EAE0]/70 leading-relaxed border-t border-[#EADBCE]/60 dark:border-[#223B30]/60 pt-3">
+              {faq.answer}
+            </p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>

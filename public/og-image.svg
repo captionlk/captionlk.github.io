@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <!-- Deep Pine Background -->
+  <rect width="1200" height="630" fill="#0E1713"/>
+  <circle cx="200" cy="150" r="320" fill="#1D4533" fill-opacity="0.35" filter="blur(140px)"/>
+  <circle cx="1000" cy="450" r="320" fill="#5E3122" fill-opacity="0.35" filter="blur(140px)"/>
+  
+  <!-- Logo Badge -->
+  <rect x="100" y="100" width="80" height="80" rx="24" fill="url(#grad)"/>
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1D4533" />
+      <stop offset="50%" stop-color="#2D5A45" />
+      <stop offset="100%" stop-color="#5E3122" />
+    </linearGradient>
+  </defs>
+  <path d="M125 125C125 120 130 115 135 115H145C150 115 155 120 155 125V145C155 150 150 155 145 155H135L122 165V155H125Z" fill="#F7EAE0"/>
+
+  <!-- Texts in Warm Cream and Peach -->
+  <text x="200" y="155" fill="#F7EAE0" font-family="system-ui, sans-serif" font-size="44" font-weight="800">
+    Caption<tspan fill="#F9D2BA">LK</tspan>
+  </text>
+  <text x="100" y="270" fill="#F7EAE0" font-family="system-ui, sans-serif" font-size="56" font-weight="800">
+    100% Client-Side AI Sinhala
+  </text>
+  <text x="100" y="340" fill="#F9D2BA" font-family="system-ui, sans-serif" font-size="56" font-weight="800">
+    Caption &amp; Subtitle Studio
+  </text>
+
+  <text x="100" y="420" fill="#EADBCE" font-family="system-ui, sans-serif" font-size="24" font-weight="500">
+    Zero-Server Processing • Whisper AI &amp; FFmpeg.wasm • Instant SRT / VTT Export
+  </text>
+  
+  <!-- CTA Pill in Pine and Peach -->
+  <rect x="100" y="480" width="300" height="54" rx="16" fill="#1D4533" stroke="#2D5A45" stroke-width="2"/>
+  <text x="135" y="515" fill="#F9D2BA" font-family="system-ui, sans-serif" font-size="20" font-weight="700">
+    captionlk.github.io
+  </text>
+</svg>

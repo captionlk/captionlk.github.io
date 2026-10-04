@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="palGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1D4533" />
+      <stop offset="50%" stop-color="#2D5A45" />
+      <stop offset="100%" stop-color="#5E3122" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="url(#palGrad)" />
+  <!-- Speech / Subtitle bubble in Warm Cream #F7EAE0 -->
+  <path d="M18 20C18 16.6863 20.6863 14 24 14H40C43.3137 14 46 16.6863 46 20V34C46 37.3137 43.3137 40 40 40H30L21 47V40H24C20.6863 40 18 37.3137 18 34V20Z" fill="#F7EAE0" />
+  <!-- Subtitle lines in Pine #1D4533 and Peach #F9D2BA -->
+  <rect x="24" y="22" width="16" height="3.5" rx="1.75" fill="#1D4533" />
+  <rect x="24" y="28" width="11" height="3.5" rx="1.75" fill="#5E3122" />
+</svg>

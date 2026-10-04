@@ -1,0 +1,127 @@
+---
+import type { Locale } from '../i18n/translations';
+
+interface Props {
+  title: string;
+  description: string;
+  currentLocale: Locale;
+  canonicalUrl: string;
+}
+
+const { title, description, currentLocale, canonicalUrl } = Astro.props;
+
+const siteUrl = 'https://captionlk.github.io';
+const ogImage = `${siteUrl}/og-image.png`;
+
+// WebApplication & SoftwareApplication Structured Data
+const jsonLdSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebApplication',
+      '@id': `${siteUrl}/#webapp`,
+      name: 'CaptionLK',
+      url: canonicalUrl,
+      applicationCategory: 'MultimediaApplication',
+      operatingSystem: 'All Modern Web Browsers (Chrome, Firefox, Edge, Safari)',
+      browserRequirements: 'Requires JavaScript, WebAssembly, HTML5 Audio/Video',
+      offers: {
+        '@type': 'Offer',
+        price: '0.00',
+        priceCurrency: 'USD'
+      },
+      description: 'Free, 100% client-side AI Sinhala caption & subtitle generator powered by Whisper AI and FFmpeg.wasm. Transcribe video and audio to Sinhala subtitles with zero server uploads.',
+      featureList: [
+        '100% Client-Side Privacy: No audio or video ever leaves user device',
+        'OpenAI Whisper speech recognition engine running in WebAssembly / WebGPU',
+        'Automatic Sinhala speech-to-text with millisecond timestamps',
+        'Interactive real-time subtitle editor and styling studio',
+        'Instant one-click .SRT, .VTT, .TXT, and JSON export',
+        'FFmpeg.wasm audio extraction from MP4, WebM, MKV, MOV, MP3, WAV'
+      ],
+      keywords: 'Sinhala subtitle generator, auto caption maker online, free SRT generator, AI Sinhala transcription, Whisper Sinhala STT, Sinhala speech to text'
+    },
+    {
+      '@type': 'SoftwareApplication',
+      '@id': `${siteUrl}/#software`,
+      name: 'CaptionLK Sinhala Subtitle Maker',
+      operatingSystem: 'Cross-platform (Browser)',
+      applicationCategory: 'VideoApplication',
+      softwareVersion: '1.0.0',
+      author: {
+        '@type': 'Person',
+        name: 'Kishan Radil',
+        url: 'https://buymeacoffee.com/kisharadilz'
+      },
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD'
+      }
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'How do I generate Sinhala subtitles for free?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Upload any MP4 video or MP3 audio file into CaptionLK. The local Whisper AI model transcribes your media into Sinhala text with accurate timestamps in your browser. You can then edit the subtitles and download the .SRT file instantly.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Is my video or audio uploaded to an external server?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'No. CaptionLK operates 100% client-side using WebAssembly and Transformers.js. All media processing and speech recognition runs directly on your local device.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'What formats can I export from CaptionLK?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'You can export standard SubRip (.SRT) files compatible with YouTube, Premiere Pro, and DaVinci Resolve, WebVTT (.VTT) for web players, plain text (.TXT), and JSON data.'
+          }
+        }
+      ]
+    }
+  ]
+};
+---
+
+<!-- Canonical & Hreflang Alternates -->
+<link rel="canonical" href={canonicalUrl} />
+<link rel="alternate" hreflang="en" href={`${siteUrl}/`} />
+<link rel="alternate" hreflang="si" href={`${siteUrl}/si/`} />
+<link rel="alternate" hreflang="x-default" href={`${siteUrl}/`} />
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="keywords" content="Sinhala subtitle generator, auto caption maker online, free SRT generator, AI Sinhala speech to text, client-side Whisper, Sinhala audio to text, video captions Sinhala, Sinhala subtitles download, ffmpeg wasm captions" />
+<meta name="author" content="Kishan Radil" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:site_name" content="CaptionLK" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:alt" content="CaptionLK - 100% Client-Side AI Sinhala Caption Generator" />
+<meta property="og:locale" content={currentLocale === 'si' ? 'si_LK' : 'en_US'} />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalUrl} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json" set:html={JSON.stringify(jsonLdSchema)} />

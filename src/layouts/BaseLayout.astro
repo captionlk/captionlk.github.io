@@ -1,0 +1,71 @@
+---
+import '../styles/global.css';
+import { Navbar } from '../components/Navbar';
+import Footer from '../components/Footer.astro';
+import SEO from '../components/SEO.astro';
+import type { Locale } from '../i18n/translations';
+
+interface Props {
+  title: string;
+  description: string;
+  currentLocale: Locale;
+  canonicalUrl: string;
+}
+
+const { title, description, currentLocale, canonicalUrl } = Astro.props;
+---
+
+<!doctype html>
+<html lang={currentLocale} class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Google Fonts for English and Sinhala Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Sinhala:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Theme initialization script (prevents theme flicker) -->
+    <script is:inline>
+      (function() {
+        try {
+          const storedTheme = localStorage.getItem('captionlk_theme');
+          const isDark = storedTheme === 'dark' || (!storedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          const root = document.documentElement;
+          if (isDark) {
+            root.classList.add('dark');
+            root.setAttribute('data-theme', 'dark');
+          } else {
+            root.classList.remove('dark');
+            root.setAttribute('data-theme', 'light');
+          }
+        } catch (e) {
+          console.warn('Theme init error:', e);
+        }
+      })();
+    </script>
+
+    <!-- Technical SEO Metadata & JSON-LD Schemas -->
+    <SEO
+      title={title}
+      description={description}
+      currentLocale={currentLocale}
+      canonicalUrl={canonicalUrl}
+    />
+  </head>
+  <body class="min-h-screen bg-[#FAF4EE] dark:bg-[#0E1713] text-[#331C13] dark:text-[#F7EAE0] flex flex-col font-sans transition-colors duration-200 selection:bg-[#F9D2BA] selection:text-[#5E3122]">
+    <Navbar client:load currentLocale={currentLocale} />
+    
+    <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+      <slot />
+    </main>
+
+    <Footer currentLocale={currentLocale} />
+  </body>
+</html>
